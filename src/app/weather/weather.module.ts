@@ -12,4 +12,5 @@ import { WeatherDetailsComponent } from './components/weather-details/weather-de
     WeatherRoutingModule
   ]
 })
+
 export class WeatherModule { }
