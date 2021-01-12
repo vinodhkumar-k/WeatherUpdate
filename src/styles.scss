@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+// Load the material theme
+@import './scss/theme';
 html, body {
   display: flex;
   flex: auto;
