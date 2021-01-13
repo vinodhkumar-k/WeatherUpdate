@@ -7,5 +7,18 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'weather-update';
+  isExpanded = false;
+  isShowing = false;
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
+  }
 }
