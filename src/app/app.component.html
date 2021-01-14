@@ -1,19 +1,24 @@
-<mat-toolbar color="primary" class="toolbar">
-  <button mat-icon-button>
-    <mat-icon (click)="isExpanded = !isExpanded">menu</mat-icon>
-  </button>
-  <h1>Forecast</h1>
-</mat-toolbar>
-<mat-sidenav-container autosize class="sidenav-container">
-  <mat-sidenav #voyagersnav mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" class="sidenav">
-    <mat-nav-list>
-      <mat-list-item>
-        <span *ngIf="isExpanded || isShowing">Home</span>
-        <mat-icon mat-list-icon>home</mat-icon>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div>
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button>
+      <mat-icon (click)="isExpanded = !isExpanded">menu</mat-icon>
+    </button>
+    <h1>Forecast</h1>
+  </mat-toolbar>
+  <main class="container">
+    <mat-sidenav-container autosize class="sidenav-container">
+      <mat-sidenav mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()"
+        class="sidenav">
+        <mat-nav-list>
+          <mat-list-item>
+            <span *ngIf="isExpanded || isShowing">Home</span>
+            <mat-icon mat-list-icon>home</mat-icon>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </main>
+</div>
