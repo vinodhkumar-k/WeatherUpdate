@@ -8,15 +8,15 @@
   <main class="container">
     <mat-sidenav-container autosize class="sidenav-container">
       <mat-sidenav mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()"
-        class="sidenav">
-        <mat-nav-list>
-          <mat-list-item>
-            <span *ngIf="isExpanded || isShowing">Home</span>
-            <mat-icon mat-list-icon>home</mat-icon>
+        class="sidenav ">
+        <mat-nav-list *ngFor="let sideNavIcon of sideNavIcons">
+          <mat-list-item class="list-item-color">
+            <mat-icon mat-list-icon>{{sideNavIcon.icon}}</mat-icon>
+            <span *ngIf="isExpanded || isShowing">{{sideNavIcon.title}}</span>
           </mat-list-item>
         </mat-nav-list>
       </mat-sidenav>
-      <mat-sidenav-content>
+      <mat-sidenav-content class="sidenav-content">
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
