@@ -9,6 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   isExpanded = false;
   isShowing = false;
+  sideNavIcons = [
+    {
+      title: 'Home',
+      icon: 'home'
+    },
+    {
+      title: 'Air Quality',
+      icon: 'air_quality'
+    }
+  ];
 
   mouseenter() {
     if (!this.isExpanded) {
