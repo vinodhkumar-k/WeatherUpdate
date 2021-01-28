@@ -1,1 +1,7 @@
-<p>weather-details works!</p>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-form-field appearance="outline" placeholder="Enter Location">
+    <mat-label class="placeholder">Enter Location</mat-label>
+    <input matInput [formControl]="name" autocomplete="off">
+    <mat-icon matSuffix style="cursor: pointer;">search</mat-icon>
+  </mat-form-field>
+</div>
