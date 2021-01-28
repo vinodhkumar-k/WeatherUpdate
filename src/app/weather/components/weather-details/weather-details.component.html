@@ -2,6 +2,7 @@
   <mat-form-field appearance="outline" placeholder="Enter Location">
     <mat-label class="placeholder">Enter Location</mat-label>
     <input matInput [formControl]="name" autocomplete="off">
-    <mat-icon matSuffix style="cursor: pointer;">search</mat-icon>
+    <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
+  <button mat-raised-button color="primary" class="get-weather-button" (click)="getCityWeather()">Get Weather</button>
 </div>
