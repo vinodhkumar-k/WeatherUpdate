@@ -14,6 +14,10 @@ export class WeatherDetailsComponent implements OnInit {
 
   constructor() { }
 
+  getCityWeather() {
+    console.log(this.name.value);
+  }
+
   ngOnInit(): void {
   }
 
