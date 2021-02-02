@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
+import { WeatherDetailsService } from '../../services/weather-details.service';
+
 
 @Component({
   selector: 'app-weather-details',
@@ -12,10 +14,13 @@ export class WeatherDetailsComponent implements OnInit {
 
   name = new FormControl('');
 
-  constructor() { }
+  constructor(private weatherDetailsService: WeatherDetailsService) { }
 
   getCityWeather() {
-    console.log(this.name.value);
+    // console.log(this.name.value);
+    this.weatherDetailsService.getCity(this.name.value).subscribe(res => {
+      console.log(res);
+    })
   }
 
   ngOnInit(): void {
