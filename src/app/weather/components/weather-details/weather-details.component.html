@@ -5,4 +5,29 @@
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
   <button mat-raised-button color="primary" class="get-weather-button" (click)="getCityWeather()">Get Weather</button>
+  <!-- <div>{{weatherData | date:'dd-MM-yyyy HH:mm:SS'}}</div> -->
+</div>
+<div *ngIf="weatherData.length" fxLayout="row" style="margin: 5px;" fxLayoutGap="5px">
+  <mat-card *ngFor="let weather of weatherData" style="width: 450px; height: 450px;">
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between">
+      <mat-card-title>{{weather.name}}</mat-card-title>
+      <div>
+        <mat-icon style="cursor: pointer;">minimize</mat-icon>
+        <mat-icon style="cursor: pointer;">close</mat-icon>
+      </div>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div *ngIf="minimizedCities.length" fxLayout="row" fxLayoutAlign="center center" class="header-height">
+  <mat-chip-list aria-label="Status">
+    <mat-chip *ngFor="let city of minimizedCities; let i=index" matTooltip="Maximize {{city}}"
+      class="chip-content cursor-pointer" selectable=false (click)="onExpandCity(city, i)">
+      <span>
+        {{city}}
+      </span>
+      <mat-icon class="details-btn">
+        call_made
+      </mat-icon>
+    </mat-chip>
+  </mat-chip-list>
 </div>
