@@ -9,11 +9,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherDetailsComponent } from './components/weather-details/weather-details.component';
 import { WeatherDetailsService } from './services/weather-details.service';
-
 
 @NgModule({
   declarations: [WeatherDetailsComponent],
@@ -29,6 +29,7 @@ import { WeatherDetailsService } from './services/weather-details.service';
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
+    MatTooltipModule,
     WeatherRoutingModule
   ],
   providers: [WeatherDetailsService]
