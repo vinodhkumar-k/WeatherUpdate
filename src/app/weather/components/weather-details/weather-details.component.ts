@@ -22,7 +22,6 @@ export class WeatherDetailsComponent implements OnInit {
 
   getCityWeather() {
     this.weatherDetailsService.getWeatherByCity(this.name.value).subscribe(res => {
-      console.log(res);
       this.weatherData.push({
         name: res.name,
         country: res.sys.country,
@@ -36,7 +35,19 @@ export class WeatherDetailsComponent implements OnInit {
     });
   }
 
-  onExpandCity(city, index) {}
+  onExpandCity(city, index): void {
+    this.weatherData.splice(index, 0, city);
+    this.minimizedCities.splice(index, 1);
+  }
+
+  onMinimizeCity(index): void {
+    this.minimizedCities.splice(index, 0, this.weatherData[index]);
+    this.weatherData.splice(index, 1);
+  }
+
+  onCloseCity(index): void {
+    this.weatherData.splice(index, 1);
+  }
 
   ngOnInit(): void {
   }
