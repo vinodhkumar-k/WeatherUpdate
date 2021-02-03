@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherDetailsComponent } from './components/weather-details/weather-details.component';
@@ -25,6 +27,8 @@ import { WeatherDetailsService } from './services/weather-details.service';
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
+    MatChipsModule,
     WeatherRoutingModule
   ],
   providers: [WeatherDetailsService]
