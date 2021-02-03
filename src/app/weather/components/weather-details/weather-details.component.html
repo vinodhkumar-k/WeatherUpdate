@@ -7,25 +7,25 @@
   <button mat-raised-button color="primary" class="get-weather-button" (click)="getCityWeather()">Get Weather</button>
   <!-- <div>{{weatherData | date:'dd-MM-yyyy HH:mm:SS'}}</div> -->
 </div>
-<div *ngIf="weatherData.length" fxLayout="row" style="margin: 5px;" fxLayoutGap="5px">
-  <mat-card *ngFor="let weather of weatherData" style="width: 450px; height: 450px;">
+<div *ngIf="weatherData.length" fxLayout="row" style="margin: 5px; min-height: 500px;" fxLayoutGap="5px">
+  <mat-card *ngFor="let weather of weatherData; let i=index" style="width: 450px; height: 450px;">
     <mat-card-header fxLayout="row" fxLayoutAlign="space-between">
       <mat-card-title>{{weather.name}}</mat-card-title>
       <div>
-        <mat-icon style="cursor: pointer;">minimize</mat-icon>
-        <mat-icon style="cursor: pointer;">close</mat-icon>
+        <mat-icon matTooltip="Minimize" style="cursor: pointer;" (click)="onMinimizeCity(i)">minimize</mat-icon>
+        <mat-icon matTooltip="Close" style="cursor: pointer;" (click)="onCloseCity(i)">close</mat-icon>
       </div>
     </mat-card-header>
   </mat-card>
 </div>
 <div *ngIf="minimizedCities.length" fxLayout="row" fxLayoutAlign="center center" class="header-height">
   <mat-chip-list aria-label="Status">
-    <mat-chip *ngFor="let city of minimizedCities; let i=index" matTooltip="Maximize {{city}}"
+    <mat-chip *ngFor="let city of minimizedCities; let i=index" matTooltip="Maximize {{city.name}}"
       class="chip-content cursor-pointer" selectable=false (click)="onExpandCity(city, i)">
       <span>
-        {{city}}
+        {{city.name}}
       </span>
-      <mat-icon class="details-btn">
+      <mat-icon style="cursor: pointer;">
         call_made
       </mat-icon>
     </mat-chip>
