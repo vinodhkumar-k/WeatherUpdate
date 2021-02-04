@@ -26,11 +26,11 @@ export class WeatherDetailsComponent implements OnInit {
         name: res.name,
         country: res.sys.country,
         date: new Date(res.dt * 1000),
-        temperature: res.main.temp,
-        minTemperature: res.main.temp_min,
-        maxTemperature: res.main.temp_max,
+        temperature: Number((res.main.temp - 273.15).toFixed(1)),
+        minTemperature: Number((res.main.temp_min - 273.15).toFixed(1)),
+        maxTemperature: Number((res.main.temp_max - 273.15).toFixed(1)),
         weatherDiscription: res.weather.description,
-        weatherIcon: res.weather.icon
+        weatherIcon: res.weather[0].icon
       });
     });
   }
