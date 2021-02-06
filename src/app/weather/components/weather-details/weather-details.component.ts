@@ -16,7 +16,6 @@ export class WeatherDetailsComponent implements OnInit {
   name = new FormControl('');
   weatherData: WeatherData[] = [];
   minimizedCities = [];
-  // maximizedCities = [];
 
   constructor(private weatherDetailsService: WeatherDetailsService) { }
 
@@ -29,7 +28,7 @@ export class WeatherDetailsComponent implements OnInit {
         temperature: Number((res.main.temp - 273.15).toFixed(1)),
         minTemperature: Number((res.main.temp_min - 273.15).toFixed(1)),
         maxTemperature: Number((res.main.temp_max - 273.15).toFixed(1)),
-        weatherDiscription: res.weather.description,
+        weatherDiscription: res.weather[0].description,
         weatherIcon: res.weather[0].icon
       });
     });
