@@ -24,7 +24,7 @@ export class WeatherDetailsComponent implements OnInit {
       this.weatherData.push({
         name: res.name,
         country: res.sys.country,
-        date: new Date(res.dt * 1000),
+        date: this.getLocalTime(res.timezone),
         temperature: Number((res.main.temp - 273.15).toFixed(1)),
         minTemperature: Number((res.main.temp_min - 273.15).toFixed(1)),
         maxTemperature: Number((res.main.temp_max - 273.15).toFixed(1)),
@@ -32,6 +32,13 @@ export class WeatherDetailsComponent implements OnInit {
         weatherIcon: res.weather[0].icon
       });
     });
+  }
+
+  getLocalTime(data) {
+    const date = new Date();
+    const utc = date.getTime() + (date.getTimezoneOffset() * 60000); // local offset
+    const localTime = utc + 1000 * data;
+    return new Date(localTime).toLocaleString();
   }
 
   onExpandCity(city, index): void {
