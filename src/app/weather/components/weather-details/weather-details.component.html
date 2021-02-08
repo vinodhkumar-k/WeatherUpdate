@@ -7,8 +7,8 @@
   <button mat-raised-button color="primary" class="get-weather-button" (click)="getCityWeather()">Get Weather</button>
   <!-- <div>{{weatherData | date:'dd-MM-yyyy HH:mm:SS'}}</div> -->
 </div>
-<div *ngIf="weatherData.length" fxLayout="row" style="margin: 5px; min-height: 500px;" fxLayoutGap="5px">
-  <mat-card *ngFor="let weather of weatherData; let i=index" style="width: 450px; height: 450px;">
+<div *ngIf="weatherData.length" fxLayout="row" style="margin: 5px; min-height: 400px;" fxLayoutGap="5px">
+  <mat-card *ngFor="let weather of weatherData; let i=index" style="width: 450px; height: 350px;">
     <mat-card-header fxLayout="row" fxLayoutAlign="space-between">
       <mat-card-title>{{weather.name}},  {{weather.country}}</mat-card-title>
       <div>
@@ -19,11 +19,13 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <div><span class="font-weight-500">Temperature:</span> {{weather.temperature}}</div>
+      <h2 style="text-align: center; font-weight: bold; font-size: 30px; margin: 0;">{{weather.name}},  {{weather.country}}</h2>
+      <h6 style="text-align: center; font-size: 20px;">{{weather.date | date:'dd-MM-yyyy HH:mm:ss a'}}</h6>
+      <!-- <div><span class="font-weight-500">Temperature:</span> {{weather.temperature}}</div>
       <div><span class="font-weight-500">Min. Temperature:</span> {{weather.minTemperature}}</div>
       <div><span class="font-weight-500">Max. Temperature:</span> {{weather.maxTemperature}}</div>
       <img src="../../../../assets/images/{{weather.weatherIcon}}.png" alt="{{weather.weatherDiscription}}" class="image">
-      <div>{{weather.weatherDiscription | titlecase }}</div>
+      <div>{{weather.weatherDiscription | titlecase }}</div> -->
     </mat-card-content>
   </mat-card>
 </div>
