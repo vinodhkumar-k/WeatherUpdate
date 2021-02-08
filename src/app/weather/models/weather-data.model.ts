@@ -7,4 +7,5 @@ export interface WeatherData {
   maxTemperature: number;
   weatherDiscription: string;
   weatherIcon: string;
+  backgroundImage: string;
 }
