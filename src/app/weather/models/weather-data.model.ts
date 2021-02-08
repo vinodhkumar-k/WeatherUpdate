@@ -1,7 +1,7 @@
 export interface WeatherData {
   name: string;
   country: string;
-  date: Date;
+  date: string;
   temperature: number;
   minTemperature: number;
   maxTemperature: number;
