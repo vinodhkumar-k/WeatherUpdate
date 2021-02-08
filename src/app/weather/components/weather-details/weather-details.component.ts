@@ -21,6 +21,7 @@ export class WeatherDetailsComponent implements OnInit {
 
   getCityWeather() {
     this.weatherDetailsService.getWeatherByCity(this.name.value).subscribe(res => {
+      console.log(res);
       this.weatherData.push({
         name: res.name,
         country: res.sys.country,
@@ -29,9 +30,29 @@ export class WeatherDetailsComponent implements OnInit {
         minTemperature: Number((res.main.temp_min - 273.15).toFixed(1)),
         maxTemperature: Number((res.main.temp_max - 273.15).toFixed(1)),
         weatherDiscription: res.weather[0].description,
-        weatherIcon: res.weather[0].icon
+        weatherIcon: res.weather[0].icon,
+        backgroundImage: this.getBackgroundImage(res.weather[0].main)
       });
     });
+  }
+
+  getBackgroundImage(data: string) {
+    switch (data) {
+      case 'Clear':
+        return 'clear.jpg';
+      case 'Clouds':
+        return 'cloudy.jpg';
+      case 'Rain':
+      case 'Drizzle':
+      case 'Mist':
+        return 'rain.jpg';
+      case 'Thunderstorm':
+        return 'thunderstorm.jpg';
+      case 'Snow':
+        return 'snow.jpg';
+      default:
+        return;
+    }
   }
 
   getLocalTime(data) {
