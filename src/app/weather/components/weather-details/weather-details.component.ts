@@ -21,7 +21,7 @@ export class WeatherDetailsComponent implements OnInit {
 
   getCityWeather() {
     this.weatherDetailsService.getWeatherByCity(this.name.value).subscribe(res => {
-      console.log(res);
+      this.name.setValue('');
       this.weatherData.push({
         name: res.name,
         country: res.sys.country,
@@ -33,7 +33,8 @@ export class WeatherDetailsComponent implements OnInit {
         weatherIcon: res.weather[0].icon,
         backgroundImage: this.getBackgroundImage(res.weather[0].main)
       });
-    });
+    },
+    err => console.log(err));
   }
 
   getBackgroundImage(data: string) {
