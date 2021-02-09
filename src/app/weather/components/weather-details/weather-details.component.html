@@ -5,7 +5,6 @@
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
   <button mat-raised-button color="primary" class="get-weather-button" (click)="getCityWeather()">Get Weather</button>
-  <!-- <div>{{weatherData | date:'dd-MM-yyyy HH:mm:SS'}}</div> -->
 </div>
 <div *ngIf="weatherData.length" fxLayout="row" style="margin: 5px; min-height: 400px;" fxLayoutGap="5px">
   <mat-card *ngFor="let weather of weatherData; let i=index" class="card"
@@ -19,14 +18,13 @@
         <mat-icon matTooltip="Close" style="cursor: pointer;" (click)="onCloseCity(i)">close</mat-icon>
       </div>
     </mat-card-header>
-    <mat-card-content>
-      <h2 style="text-align: center; font-weight: bold; font-size: 30px; margin: 0;">{{weather.name}},  {{weather.country}}</h2>
-      <h6 style="text-align: center; font-size: 20px;">{{weather.date | date:'dd-MM-yyyy HH:mm:ss a'}}</h6>
-      <!-- <div><span class="font-weight-500">Temperature:</span> {{weather.temperature}}</div>
-      <div><span class="font-weight-500">Min. Temperature:</span> {{weather.minTemperature}}</div>
-      <div><span class="font-weight-500">Max. Temperature:</span> {{weather.maxTemperature}}</div>
-      <img src="../../../../assets/images/{{weather.weatherIcon}}.png" alt="{{weather.weatherDiscription}}" class="image">
-      <div>{{weather.weatherDiscription | titlecase }}</div> -->
+    <mat-card-content class="placeholder">
+      <h2 class="city">{{weather.name}},  {{weather.country}}</h2>
+      <h6 class="date">{{weather.date | date:'dd-MM-yyyy hh:mm:ss a'}}</h6>
+      <div class="temperature">
+        {{weather.temperature}}&deg;C<img src="../../../../assets/images/{{weather.weatherIcon}}.png" alt="{{weather.weatherDiscription}}" class="image">
+      </div>
+      <div class="discription">{{weather.weatherDiscription | titlecase }}</div>
     </mat-card-content>
   </mat-card>
 </div>
