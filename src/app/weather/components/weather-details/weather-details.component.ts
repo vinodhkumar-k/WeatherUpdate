@@ -77,6 +77,9 @@ export class WeatherDetailsComponent implements OnInit {
     this.weatherData.splice(index, 1);
   }
 
+  changeTemperatureUnits(group) {
+  }
+
   ngOnInit(): void {
   }
 
