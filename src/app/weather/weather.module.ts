@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherDetailsComponent } from './components/weather-details/weather-details.component';
@@ -30,6 +31,7 @@ import { WeatherDetailsService } from './services/weather-details.service';
     MatCardModule,
     MatChipsModule,
     MatTooltipModule,
+    MatButtonToggleModule,
     WeatherRoutingModule
   ],
   providers: [WeatherDetailsService]
