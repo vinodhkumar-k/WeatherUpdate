@@ -25,6 +25,10 @@
         {{weather.temperature}}&deg;C<img src="../../../../assets/images/{{weather.weatherIcon}}.png" alt="{{weather.weatherDiscription}}" class="image">
       </div>
       <div class="discription">{{weather.weatherDiscription | titlecase }}</div>
+      <mat-button-toggle-group #group="matButtonToggleGroup" class="temperature-button-toggle" (change)="changeTemperatureUnits(group)">
+        <mat-button-toggle [value]="C">&deg;C</mat-button-toggle>
+        <mat-button-toggle [value]="C">&deg;F</mat-button-toggle>
+      </mat-button-toggle-group>
     </mat-card-content>
   </mat-card>
 </div>
