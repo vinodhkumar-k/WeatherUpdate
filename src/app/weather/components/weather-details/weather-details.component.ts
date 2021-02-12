@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { WeatherDetailsService } from '../../services/weather-details.service';
@@ -9,7 +9,8 @@ import { WeatherData } from '../../models/weather-data.model';
   selector: 'app-weather-details',
   templateUrl: './weather-details.component.html',
   styleUrls: ['./weather-details.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WeatherDetailsComponent implements OnInit {
 
@@ -79,7 +80,7 @@ export class WeatherDetailsComponent implements OnInit {
 
   changeTemperatureUnits(group, weather) {
     const temp = weather.temperature;
-    weather.temperature = group.value === 'C' ? Math.round((temp - 32) * (5 / 9)) : Math.round((temp * 1.8) + 32);
+    weather.temperature = group.value === 'C' ? ((temp - 32) * (5 / 9)).toFixed(1) : ((temp * 1.8) + 32).toFixed(1);
   }
 
   ngOnInit(): void {
