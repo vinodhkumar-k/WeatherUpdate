@@ -77,7 +77,9 @@ export class WeatherDetailsComponent implements OnInit {
     this.weatherData.splice(index, 1);
   }
 
-  changeTemperatureUnits(group) {
+  changeTemperatureUnits(group, weather) {
+    const temp = weather.temperature;
+    weather.temperature = group.value === 'C' ? Math.round((temp - 32) * (5 / 9)) : Math.round((temp * 1.8) + 32);
   }
 
   ngOnInit(): void {
