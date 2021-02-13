@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 
 import { WeatherDetailsService } from '../../services/weather-details.service';
 import { WeatherData } from '../../models/weather-data.model';
+import { SnackbarService } from '../../../shared/services/snackbar.service';
 
 
 @Component({
@@ -18,9 +19,16 @@ export class WeatherDetailsComponent implements OnInit {
   weatherData: WeatherData[] = [];
   minimizedCities = [];
 
-  constructor(private weatherDetailsService: WeatherDetailsService) { }
+  constructor(private weatherDetailsService: WeatherDetailsService, private snackbarService: SnackbarService) { }
 
   getCityWeather() {
+    // Check city weather already exists or not -- show snackbar
+    // Max 5 cities to query and max 3 cities to maximize
+    // when user trying to add 5 cities show snackbar
+    if (this.weatherData.length >= 5) {
+      this.snackbarService.warn('Exceed max limit of 5. Please close weather details of atleast one city');
+      return;
+    }
     this.weatherDetailsService.getWeatherByCity(this.name.value).subscribe(res => {
       this.name.setValue('');
       this.weatherData.push({
@@ -52,6 +60,8 @@ export class WeatherDetailsComponent implements OnInit {
         return 'thunderstorm.jpg';
       case 'Snow':
         return 'snow.jpg';
+      case 'Fog':
+        return 'fog.jpg';
       default:
         return;
     }
