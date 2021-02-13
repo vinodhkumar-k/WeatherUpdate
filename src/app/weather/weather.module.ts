@@ -12,6 +12,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
+import { SharedModule } from '../shared/shared.module';
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherDetailsComponent } from './components/weather-details/weather-details.component';
 import { WeatherDetailsService } from './services/weather-details.service';
@@ -32,6 +33,7 @@ import { WeatherDetailsService } from './services/weather-details.service';
     MatChipsModule,
     MatTooltipModule,
     MatButtonToggleModule,
+    SharedModule,
     WeatherRoutingModule
   ],
   providers: [WeatherDetailsService]
