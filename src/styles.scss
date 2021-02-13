@@ -19,3 +19,23 @@ body {
 .mat-drawer-inner-container {
   overflow: hidden !important;
 }
+
+.mat-snack-bar-container {
+  padding: 14px 40px !important;
+  min-width: auto !important;
+}
+
+.success-snackbar {
+  background-color: #00537d;
+  color: white;
+}
+
+.error-snackbar {
+  background-color: #b00020;
+  color: white;
+}
+
+.warn-snackbar {
+  background-color: orange;
+  color: black;
+}
